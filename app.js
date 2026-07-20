@@ -832,7 +832,7 @@
 
     mainHeader.classList.toggle('scrolled', scrollY > 50);
 
-    const sections = ['home', 'catalogo', 'personalizar'];
+    const sections = ['home', 'catalogo', 'personalizar', 'redes'];
     let currentSection = 'home';
 
     sections.forEach((id) => {

@@ -1351,6 +1351,81 @@ img {
 }
 
 /* ============================================
+   SECCIÓN REDES
+   ============================================ */
+.section-redes {
+  min-height: auto;
+  padding: 100px 24px;
+  background: var(--clr-secondary);
+  display: block;
+  border-top: 1px solid var(--clr-gray-200);
+}
+
+.networks-inner {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.networks-grid {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.network-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: var(--clr-white);
+  padding: 24px 40px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  min-width: 220px;
+  transition: transform var(--transition), box-shadow var(--transition);
+  border: 1px solid var(--clr-gray-200);
+}
+
+.network-link:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--clr-accent);
+}
+
+.network-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--clr-primary);
+  color: var(--clr-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition), color var(--transition);
+}
+
+.network-link:hover .network-icon {
+  background: var(--clr-accent);
+  color: var(--clr-white);
+}
+
+.network-name {
+  font-family: var(--ff-heading);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: var(--clr-primary);
+}
+
+.network-handle {
+  font-size: 0.85rem;
+  color: var(--clr-gray-400);
+  font-weight: 500;
+}
+
+/* ============================================
    ANIMATIONS
    ============================================ */
 @keyframes fadeInUp {
