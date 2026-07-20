@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tienda oficial — Fuerza, grandeza y la esencia de uno mismo. Descubre nuestra colección exclusiva de prendas diseñadas con identidad." />
+  <title>Tienda Oficial — Colección Exclusiva</title>
+
+  <!-- Google Fonts: Anton + Archivo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================= -->
+  <!-- OVERLAY oscuro cuando el carrito está abierto  -->
+  <!-- ============================================= -->
+  <div id="cart-overlay" class="cart-overlay"></div>
+
+  <!-- ======================== -->
+  <!-- NAVEGACIÓN PRINCIPAL     -->
+  <!-- ======================== -->
+  <header id="main-header" class="main-header">
+    <nav class="nav-container">
+      <a href="#home" class="nav-logo-link">
+        <span class="nav-brand">BRAND</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active" data-section="home">Inicio</a></li>
+        <li><a href="#catalogo" class="nav-link" data-section="catalogo">Catálogo</a></li>
+      </ul>
+
+      <!-- Botón del carrito -->
+      <button id="cart-toggle-btn" class="cart-toggle-btn" aria-label="Abrir carrito">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span id="cart-count" class="cart-count">0</span>
+      </button>
+
+      <!-- Hamburguesa móvil -->
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ======================== -->
+  <!-- SECCIÓN HOME             -->
+  <!-- ======================== -->
+  <section id="home" class="section section-home">
+    <div class="home-content">
+      <div class="home-logo-wrapper">
+        <!-- Coloca tu logo aquí: reemplaza "logo.png" con el nombre real de tu archivo -->
+        <img src="logo.png" alt="Logo de la marca" class="home-logo" id="home-logo" />
+      </div>
+      <p class="home-tagline">Fuerza, grandeza y la esencia de uno mismo.</p>
+      <a href="#catalogo" class="home-cta">Ver Catálogo</a>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- SECCIÓN CATÁLOGO         -->
+  <!-- ======================== -->
+  <section id="catalogo" class="section section-catalogo">
+    <div class="section-inner">
+      <h2 class="section-title">Catálogo</h2>
+      <p class="section-subtitle">Prendas diseñadas, listas para envío.</p>
+
+      <div id="products-grid" class="products-grid">
+        <!-- Los productos se renderizan dinámicamente desde app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- SIDEBAR CARRITO          -->
+  <!-- ======================== -->
+  <aside id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3 class="cart-title">Tu Carrito</h3>
+      <button id="cart-close-btn" class="cart-close-btn" aria-label="Cerrar carrito">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div id="cart-items" class="cart-items">
+      <!-- Items del carrito renderizados dinámicamente -->
+      <p class="cart-empty-msg" id="cart-empty-msg">Tu carrito está vacío.</p>
+    </div>
+
+    <div class="cart-footer" id="cart-footer">
+      <!-- Cupón de descuento -->
+      <div class="coupon-section">
+        <label for="coupon-input" class="coupon-label">Cupón de descuento</label>
+        <div class="coupon-row">
+          <input type="text" id="coupon-input" class="coupon-input" placeholder="Ingresa tu código" />
+          <button id="coupon-apply-btn" class="coupon-apply-btn">Aplicar</button>
+        </div>
+        <p id="coupon-msg" class="coupon-msg"></p>
+      </div>
+
+      <!-- Resumen de precios -->
+      <div class="cart-summary">
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">$0.00</span>
+        </div>
+        <div class="summary-line discount-line" id="discount-line" style="display:none;">
+          <span id="discount-label">Descuento</span>
+          <span id="cart-discount">-$0.00</span>
+        </div>
+        <div class="summary-line total-line">
+          <span>Total</span>
+          <span id="cart-total">$0.00</span>
+        </div>
+      </div>
+
+      <button id="checkout-btn" class="checkout-btn" disabled>Finalizar Compra</button>
+    </div>
+  </aside>
+
+  <!-- ======================== -->
+  <!-- FOOTER                   -->
+  <!-- ======================== -->
+  <footer class="main-footer">
+    <p>&copy; 2026 Brand. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
