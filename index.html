@@ -26,12 +26,13 @@
   <header id="main-header" class="main-header">
     <nav class="nav-container">
       <a href="#home" class="nav-logo-link">
-        <span class="nav-brand">DRAGO</span>
+        <span class="nav-brand">BRAND</span>
       </a>
 
       <ul class="nav-links" id="nav-links">
         <li><a href="#home" class="nav-link active" data-section="home">Inicio</a></li>
         <li><a href="#catalogo" class="nav-link" data-section="catalogo">Catálogo</a></li>
+        <li><a href="#personalizar" class="nav-link" data-section="personalizar">Personalizar</a></li>
       </ul>
 
       <!-- Botón del carrito -->
@@ -78,6 +79,165 @@
       </div>
     </div>
   </section>
+
+  <!-- ================================ -->
+  <!-- SECCIÓN PERSONALIZAR (CTA)       -->
+  <!-- ================================ -->
+  <section id="personalizar" class="section section-personalizar">
+    <div class="section-inner personalizar-inner">
+      <div class="personalizar-content">
+        <h2 class="section-title">Creá tu prenda</h2>
+        <p class="section-subtitle personalizar-sub">Elegí el tipo de prenda, el color, el talle y el diseño. Nosotros la hacemos realidad.</p>
+        <button id="open-customizer-btn" class="customizer-cta-btn">Personalizar mi prenda</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================ -->
+  <!-- MODAL PERSONALIZADOR — Flujo de 3 pasos          -->
+  <!-- ================================================ -->
+  <div id="customizer-overlay" class="customizer-overlay"></div>
+  <div id="customizer-modal" class="customizer-modal">
+
+    <!-- Encabezado del modal -->
+    <div class="customizer-header">
+      <h3 class="customizer-modal-title">Personalizar mi prenda</h3>
+      <button id="customizer-close-btn" class="customizer-close-btn" aria-label="Cerrar personalizador">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Indicador de pasos -->
+    <div class="customizer-steps-indicator">
+      <div class="step-dot active" data-step="1"><span>1</span> Prenda</div>
+      <div class="step-connector"></div>
+      <div class="step-dot" data-step="2"><span>2</span> Diseño</div>
+      <div class="step-connector"></div>
+      <div class="step-dot" data-step="3"><span>3</span> Final</div>
+    </div>
+
+    <!-- Contenedor de pasos -->
+    <div class="customizer-body">
+
+      <!-- ======= PASO 1: Prenda ======= -->
+      <div class="customizer-step active" id="cust-step-1">
+        <h4 class="step-title">Elegí tu prenda</h4>
+
+        <div class="cust-options-grid">
+          <!-- Tipo de prenda -->
+          <div class="option-group">
+            <label class="option-label" for="cust-type">Tipo de prenda</label>
+            <select class="option-select" id="cust-type">
+              <option value="Canguro">Canguro</option>
+              <option value="Manga Larga">Manga Larga</option>
+              <option value="Remera">Remera</option>
+            </select>
+          </div>
+
+          <!-- Talle -->
+          <div class="option-group">
+            <label class="option-label" for="cust-size">Talle</label>
+            <select class="option-select" id="cust-size">
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+              <option value="XXL">XXL</option>
+            </select>
+          </div>
+
+          <!-- Tipo de corte -->
+          <div class="option-group">
+            <label class="option-label" for="cust-cut">Tipo de corte</label>
+            <select class="option-select" id="cust-cut">
+              <option value="Regular">Regular</option>
+              <option value="Oversize">Oversize</option>
+              <option value="Slim Fit">Slim Fit</option>
+            </select>
+          </div>
+
+          <!-- Color -->
+          <div class="option-group">
+            <label class="option-label" for="cust-color">Color</label>
+            <select class="option-select" id="cust-color">
+              <option value="Negro">Negro</option>
+              <option value="Blanco">Blanco</option>
+              <option value="Gris Oxford">Gris Oxford</option>
+              <option value="Beige">Beige</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="step-actions">
+          <button class="cust-btn-primary" id="cust-step1-next">Continuar</button>
+        </div>
+      </div>
+
+      <!-- ======= PASO 2: Diseño ======= -->
+      <div class="customizer-step" id="cust-step-2">
+        <h4 class="step-title">Elegí tu diseño</h4>
+
+        <!-- Diseño Frontal -->
+        <div class="design-section">
+          <h5 class="design-section-title">Diseño Frontal</h5>
+          <div class="design-grid" id="front-designs-grid">
+            <!-- Renderizado dinámicamente desde JS -->
+          </div>
+          <label class="simple-checkbox-label">
+            <input type="checkbox" id="front-simple" class="simple-checkbox" />
+            <span class="simple-checkmark"></span>
+            Simple <span class="simple-hint">(sin diseño)</span>
+          </label>
+        </div>
+
+        <!-- Diseño Posterior -->
+        <div class="design-section">
+          <h5 class="design-section-title">Diseño Posterior</h5>
+          <div class="design-grid" id="back-designs-grid">
+            <!-- Renderizado dinámicamente desde JS -->
+          </div>
+          <label class="simple-checkbox-label">
+            <input type="checkbox" id="back-simple" class="simple-checkbox" />
+            <span class="simple-checkmark"></span>
+            Simple <span class="simple-hint">(sin diseño)</span>
+          </label>
+        </div>
+
+        <div class="step-actions">
+          <button class="cust-btn-secondary" id="cust-step2-back">Volver</button>
+          <button class="cust-btn-primary" id="cust-step2-next" disabled>Continuar</button>
+        </div>
+      </div>
+
+      <!-- ======= PASO 3: Final ======= -->
+      <div class="customizer-step" id="cust-step-3">
+        <h4 class="step-title">Vista previa</h4>
+
+        <div class="preview-container">
+          <!-- Vista previa visual -->
+          <div class="preview-card">
+            <div class="preview-img-wrapper" id="preview-img-wrapper">
+              <!-- SVG generado dinámicamente -->
+            </div>
+            <div class="preview-details">
+              <h5 class="preview-name" id="preview-name"></h5>
+              <p class="preview-summary" id="preview-summary"></p>
+              <span class="preview-price" id="preview-price"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-actions step-actions-final">
+          <button class="cust-btn-cancel" id="cust-cancel">Cancelar compra</button>
+          <button class="cust-btn-confirm" id="cust-confirm">Confirmar compra</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <!-- ======================== -->
   <!-- SIDEBAR CARRITO          -->
